@@ -1,7 +1,6 @@
 package com.thoughtworks;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MemoryRepository<T> implements Repository<T> {
 
@@ -32,9 +31,12 @@ public class MemoryRepository<T> implements Repository<T> {
     }
 
     @Override
-    public void list() {
+    public Collection<T> list() {
+        Set<T> allObjects = new HashSet<>();
         for(String key: database.keySet()){
-            System.out.println(database.get(key));
+            allObjects.add(database.get(key));
         }
+        return allObjects;
+
     }
 }
