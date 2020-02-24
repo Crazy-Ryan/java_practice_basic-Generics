@@ -2,8 +2,8 @@ package com.thoughtworks;
 
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -12,7 +12,7 @@ public class MemoryRepository<T> implements Repository<T> {
     private Map<String, T> database;
 
     public MemoryRepository() {
-        database = new HashMap<>();
+        database = new LinkedHashMap<>();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class MemoryRepository<T> implements Repository<T> {
 
     @Override
     public Collection<T> list() {
-        Set<T> allObjects = new HashSet<>();
+        Set<T> allObjects = new LinkedHashSet<>();
         for (String key : database.keySet()) {
             allObjects.add(database.get(key));
         }
