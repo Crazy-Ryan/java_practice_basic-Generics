@@ -1,5 +1,7 @@
 package com.thoughtworks;
 
+import java.util.Collection;
+
 public interface Repository<T> {
 
     void save(String id, T t);
@@ -10,6 +12,6 @@ public interface Repository<T> {
 
     void update(String id, T t);
 
-    void list();
+    Collection<T> list();
 
 }
